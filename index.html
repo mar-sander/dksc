@@ -1,1 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101012">
+  <meta name="description" content="どこでもスクリプト＋ Stage +1：安全なローカル検証専用ツール">
+  <title>どこでもスクリプト＋ | WEB Verifier</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="eyebrow">MARZ ENGINE / STAGE +1</div>
+      <h1>どこでもスクリプト<span class="accent">＋</span></h1>
+      <p class="lead">どこにいても、どんなデバイスでも、使える。</p>
+      <span class="mode">WEB VERIFIER / READ ONLY</span>
+    </header>
 
+    <section class="panel" aria-labelledby="heading-input">
+      <div class="section-head">
+        <span class="section-index">01</span>
+        <h2 id="heading-input">ファイルを選択</h2>
+      </div>
+      <p class="hint">ファイルは端末内で検証します。送信・アップロードはしません。</p>
+      <div class="fields">
+        <div class="field">
+          <label for="manifest">publish-manifest.json</label>
+          <input type="file" id="manifest" accept=".json,application/json">
+          <p class="helper">Windows版 Ver.1.0と同じmanifest形式</p>
+        </div>
+        <div class="field">
+          <label for="bundle">Git bundle（.bundle）</label>
+          <input type="file" id="bundle">
+          <p class="helper">Androidのファイル選択制限を避けるため拡張子フィルターなし</p>
+        </div>
+      </div>
+      <button type="button" id="verify">ローカル検証を実行 <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section class="panel" aria-labelledby="heading-result">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 id="heading-result">検証結果</h2>
+      </div>
+      <div id="result" class="result" data-status="idle" aria-live="polite">
+        <h3 id="status-title">検証待ち</h3>
+        <p id="status-summary">ファイルを選択して検証を実行してください。</p>
+        <div id="details" class="result-details"></div>
+      </div>
+    </section>
+
+    <section class="disclaimer" aria-label="検証範囲">
+      <h2>安全停止を最優先</h2>
+      <p>Stage +1はmanifest形式・ファイル名・SHA256だけを検証します。Git履歴・差分・remote状態は未確認です。ブラウザ検証PASSは公開許可を意味しません。</p>
+      <p>Web Cryptoのメモリ制約を考慮し、bundleは暫定64 MiB以下に制限しています。超過はファイル不正ではなく、本Stageの未対応として停止します。</p>
+    </section>
+    <footer>どこでもスクリプト＋ <span>PROTOTYPE · NO PUSH · NO CREDENTIALS</span></footer>
+  </main>
+  <script type="module" src="./src/app.mjs"></script>
+</body>
+</html>
