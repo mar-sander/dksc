@@ -1,0 +1,18 @@
+{
+  "release": "DKSC-Stage-Plus1-Android-Test-Only",
+  "repository": "dksc-tests/local-fixture",
+  "baseBranch": "main",
+  "expectedMain": "2abe9953e18096e5bd52ffedcfb00a4b81c10fb9",
+  "branch": "agent/dksc-stage-plus1-android-test",
+  "expectedHead": "0692291ddfd9a0f2bdc020203f0771584d8b761e",
+  "bundle": "dksc-stage-plus1-android-test.bundle",
+  "bundleSha256": "C590B5D9D4393E72F9AA4B52617896ED7C7BACCC7ED0D7C58EFB8EBC7D66B987",
+  "expectedFiles": [
+    "README.md",
+    "sample.txt"
+  ],
+  "expectedCommits": [
+    "12ea9660d1d275d84b059a6439b29e2b2f618df7",
+    "0692291ddfd9a0f2bdc020203f0771584d8b761e"
+  ]
+}
